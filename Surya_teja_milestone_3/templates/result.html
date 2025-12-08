@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FWI Result</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Poppins, sans-serif;
+
+        /* MULTI-COLOR LINEAR GRADIENT */
+        background: linear-gradient(45deg, #3b3ee3,#045610);
+        
+        animation: gradientShift 15s ease infinite;
+
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .box {
+        background: rgba(0,0,0,0.85);
+        padding: 40px;
+        width: 450px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0px 8px 30px rgba(0,0,0,0.6);
+    }
+
+    .result {
+        font-size: 38px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .level {
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    img {
+        width: 150px;
+        margin-top: 20px;
+        border-radius: 12px;
+
+        /* ANIMATION FOR ZOOM IN/OUT */
+        animation: zoomInOut 2s ease-in-out infinite;
+    }
+
+    @keyframes zoomInOut {
+        0%   { transform: scale(1); }
+        50%  { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+
+    .btn {
+        margin-top: 25px;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        border-radius: 10px;
+        display: inline-block;
+        transition: 0.3s ease;
+    }
+
+    .btn:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+<div class="box">
+    <h2> Forest Fire Index Result</h2>
+    <div class="result">{{ result }}</div>
+    <div class="level">{{ level }}</div>
+    <img src="{{ url_for('static', filename=  image_file) }}" alt="Fire Danger"><br/>
+    <a class="btn" href="/">Predict Again</a>
+</div>
+</body>
+</html>
